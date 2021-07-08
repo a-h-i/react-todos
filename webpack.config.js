@@ -4,7 +4,7 @@ const { merge } =  require('webpack-merge');
 const  { page, devServer, style, lint, babel, fonts, images, staticCopy, compress } =  require('./webpack.parts');
 
 const commonConfig = merge([
-  { entry: { app: './src/entry.js' }, 
+  { entry: { app: './src/entry.jsx' }, 
     output: {
       path: path.join(__dirname, "dist"), 
       filename: "[name].js", // Emit app.js by capturing entry name

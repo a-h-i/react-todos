@@ -3,7 +3,8 @@ function page (title){
   return {
     plugins: [ new HtmlWebpackPlugin({
       title,
-      template: 'src/index.html'
+      template: 'src/index.html',
+      inject: true
     }) ]
   };
 }

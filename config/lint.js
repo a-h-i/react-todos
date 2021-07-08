@@ -2,6 +2,8 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 exports.js = () => ({
   plugins: [
-    new ESLintPlugin()
+    new ESLintPlugin({
+      extensions: [ 'js', 'jsx' ]
+    })
   ]
 });

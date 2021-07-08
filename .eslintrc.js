@@ -29,5 +29,10 @@ module.exports = {
       'error',
       '1tbs'
     ],
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 };
