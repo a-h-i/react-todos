@@ -9,6 +9,9 @@ const commonConfig = merge([
       path: path.join(__dirname, "dist"), 
       filename: "[name].js", // Emit app.js by capturing entry name
       clean: true
+    },
+    resolve: {
+      extensions: [ '', '.js', '.jsx' ]
     }
   },
   page('Bynar Systems'), // page title is argument
