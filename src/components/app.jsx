@@ -11,11 +11,13 @@ class App extends React.Component {
       notes: [
         {
           id: uuidv4(),
-          task: 'Learn React'
+          task: 'Learn React',
+          editing: false
         },
         {
           id: uuidv4(),
-          task: 'Do laundry'
+          task: 'Do laundry',
+          editing: false
         }
       ]
     }
@@ -24,7 +26,10 @@ class App extends React.Component {
     return (
       <div>
         <button onClick={ () => this.addNote()}>+</button>
-        <Notes notes={this.state.notes} onDelete={(id, e) => this.deleteNote(id, e)} />
+        <Notes notes={this.state.notes} onDelete={(id, e) => this.deleteNote(id, e)} 
+          onEdit={(id, e) => this.editNote(id, e)}
+          onNoteClick={(id) => this.activateNoteEdit(id)}
+        />
       </div>
     );
   }
@@ -40,9 +45,33 @@ class App extends React.Component {
     this.setState({
       notes: this.state.notes.concat([ {
         id: uuidv4(),
-        task: 'New Task'
+        task: 'New Task',
+        editing: false
       } ])
     });
+  }
+
+  editNote(id, task) {
+    this.setState({
+      notes: this.state.notes.map((note) => {
+        if(note.id === id) {
+          note.editing = false;
+          note.task = task;
+        }
+        return note;
+      })
+    });
+  }
+
+  activateNoteEdit(id) {
+    this.setState({
+      notes: this.state.notes.map((note) => {
+        if(note.id === id) {
+          note.editing = true;
+        }
+        return note;
+      })
+    })
   }
 }
 
