@@ -1,10 +1,10 @@
 import './style/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-const data = 'Hello ';
+import App from './components/app';
+
 ReactDOM.render(
-  <div>{data}</div>,
+  <App />,
   document.getElementById('app')
 );
 
-module.hot.accept();
